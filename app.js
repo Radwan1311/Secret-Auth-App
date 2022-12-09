@@ -100,17 +100,17 @@ passport.use(new FacebookStrategy({
   }
 ));
 
-// passport.use(new TwitterStrategy({
-//     consumerKey:  process.env.TWITTER_CONSUMER_KEY,
-//     consumerSecret:  process.env.TWITTER_CONSUMER_SECRET,
-//     callbackURL: "http://localhost:3000/auth/twitter/secrets"
-//   },
-//   function(token, tokenSecret, profile, cb) {
-//     User.findOrCreate({ twitterId: profile.id }, function (err, user) {
-//       return cb(err, user);
-//     });
-//   }
-// ));
+passport.use(new TwitterStrategy({
+    consumerKey:  process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret:  process.env.TWITTER_CONSUMER_SECRET,
+    callbackURL: "http://localhost:3000/auth/twitter/secrets"
+  },
+  function(token, tokenSecret, profile, cb) {
+    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
 
 
 
